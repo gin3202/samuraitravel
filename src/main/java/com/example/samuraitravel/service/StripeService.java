@@ -63,7 +63,7 @@ public class StripeService {
 	@PostConstruct
 	private void init() {
 		//Stripeのシークレットキーを設定する
-		Stripe.apiKey = "";
+		Stripe.apiKey = stripeApikey;
 	}
 
 	public String createStripeSession(ReservationDTO reservationDTO, User user) {

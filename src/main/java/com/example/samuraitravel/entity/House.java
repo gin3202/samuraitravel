@@ -18,7 +18,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "houses")
 @Data
-@ToString(exclude = "reservations")
+@ToString(exclude = {"reservations", "reviews"})
 
 public class House {
 	@Id
@@ -59,5 +59,6 @@ public class House {
 	@OneToMany(mappedBy = "house", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<Reservation> reservations;
 	
-	
+	@OneToMany(mappedBy = "house", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	private List<Review> reviews;
 }

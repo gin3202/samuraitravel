@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.example.samuraitravel.entity.House;
 
@@ -21,6 +22,8 @@ public interface HouseRepository  extends JpaRepository<House,Integer>{
 	public Page<House> findByPriceLessThanEqualOrderByPriceAsc(Integer price,Pageable pageable);
 	public Page<House> findAllByOrderByCreatedAtDesc(Pageable pageable);
 	public Page<House> findAllByOrderByPriceAsc(Pageable pageable);
-	public List<House> findTop10ByOrderByCreatedAtDesc();
-
+	public List<House> findTop8ByOrderByCreatedAtDesc();
+	
+	@Query("SELECT h FROM House h LEFT JOIN h.reservations r GROUP BY h.id ORDER BY COUNT(r) DESC")
+	List<House>findAllByOrderByReservationCountDesc(Pageable pageable);
 }

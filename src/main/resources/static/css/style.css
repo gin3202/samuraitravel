@@ -128,6 +128,68 @@ footer {
 	max-width: 300px;
 }
 
+.samuraitravel-swiper{
+	width: 100%;
+	height: 480px;
+}
+
+.samuraitravel-swiper img{
+	width: 100%;
+	height: 480px;
+	object-fit: cover;
+}
+
+.samuraitravel-overlay-background{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 10;
+}
+
+.samuraitravel-overlay-text{
+	padding: 0 70px;
+}
+
+.samuraitravel-catchphrase-heading{
+	font-size: 36px;
+	line-height: 1.5;
+	font-family: 'Noto Serif JP' , serif;
+	font-weight: 600;
+	text-shadow: 0.25rem 0.25rem 1rem rgb(0 0 0 / 60%);
+}
+
+.samuraitravel-catchphrase-paragraph{
+	font-size:16px;
+	line-height: 2;
+	font-family: 'Noto Serif JP',serif;
+	font-weight: 400;
+	text-shadow: 0.25rem 0.25rem 1rem rgb(0 0 0 / 60%);
+}
+
+.samuraitravel-accordion-body:hover{
+	background-color: #f8f9fa;
+	
+}
+
+.samuraitravel-accordion-body:active{
+	background-color: #5196a6;
+	color: #ffffff;
+}
+
+
+/* 星評価の色設定 */
+.samuraitravel-star {
+  color: #ffa500; /* オレンジ色 */
+}
+
+/* フォーカス時も同じ色を適用 */
+.samuraitravel-star:focus {
+  color: #ffa500;
+}
+
+
+
 @media screen and (min-width: 1400px) {
 	.samuraitravel-container {
 		max-width: 1200px;

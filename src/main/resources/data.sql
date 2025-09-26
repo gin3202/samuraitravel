@@ -86,3 +86,38 @@ INSERT IGNORE INTO reservations (id, house_id, user_id,checkin_date, checkout_da
 INSERT IGNORE INTO reservations (id, house_id, user_id,checkin_date, checkout_date, number_of_people, amount) VALUES (9, 9, 1,'2023-04-01', '2023-04-02', 5, 9000);
 INSERT IGNORE INTO reservations (id, house_id, user_id,checkin_date, checkout_date, number_of_people, amount) VALUES (10, 10, 1,'2023-04-01', '2023-04-02', 6, 10000);
 INSERT IGNORE INTO reservations (id, house_id, user_id,checkin_date, checkout_date, number_of_people, amount) VALUES (11, 11, 1,'2023-04-01', '2023-04-02', 2, 6000);
+
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (1, 'トップページに表示される「人気の民宿」はどうやって決まりますか？', '過去の予約数が多い民宿を自動的に集計し、人気順として表示しています。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (2, '新着の民宿はどこで確認できますか？', 'トップページに新しく登録された民宿を一覧で表示しています。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (3, 'エリアで検索するにはどうすればいいですか？', 'トップページの検索欄で都道府県を選択すると、その地域の民宿一覧ページに移動します。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (4, '会員登録には何が必要ですか？', '氏名、フリガナ、郵便番号、住所、電話番号、メールアドレス、パスワードが必須です。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (5, '登録時にメールが届かないのですが？', '迷惑メールフォルダをご確認ください。見つからない場合は再送機能をご利用ください。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (6, 'パスワードを忘れた場合はどうすればよいですか？', 'ログイン画面にある「パスワードを忘れた場合」リンクから再設定できます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (7, '宿泊料金で並び替えはできますか？', 'はい、安い順または新着順で並び替え可能です。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (8, '予算で検索することはできますか？', '1泊あたりの宿泊料金を指定して検索することができます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (9, '検索結果が多すぎて見にくいです。', '検索結果は10件ずつ表示され、ページ送りで次の結果を確認できます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (10, '民宿の詳細ページではどんな情報が見られますか？', '民宿名、説明、宿泊料金、定員、住所、電話番号などが確認できます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (11, '予約フォームが表示されないのはなぜですか？', 'ログインしていない場合はフォームが表示されません。ログイン後にご利用ください。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (12, '予約内容確認ページでは何が確認できますか？', 'チェックイン日、チェックアウト日、宿泊人数、宿泊料金を確認できます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (13, '予約のキャンセルは可能ですか？', 'マイページの予約一覧からキャンセルが可能です。ただしキャンセルポリシーに従います。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (14, '予約一覧が多い場合はどう表示されますか？', '10件ずつ分けて表示され、ページネーションで切り替えられます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (15, '決済にはどのような方法が使えますか？', 'Stripeを利用したクレジットカード決済に対応しています。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (16, '決済ページにはどのような情報が表示されますか？', '決済金額、登録メールアドレス、カード番号の下4桁が表示されます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (17, '決済が完了するとどうなりますか？', '予約一覧ページに移動し、予約が完了したことを確認できます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (18, '会員詳細ページでは何が確認できますか？', '氏名、フリガナ、住所、電話番号、メールアドレスが表示されます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (19, '会員情報を変更したい場合はどうすればいいですか？', '会員詳細ページの編集リンクから変更ページへ進めます。');
+INSERT IGNORE INTO faqs (id, question, answer) VALUES (20, '会員情報を編集した後はどうなりますか？', '編集成功後、自動的に会員詳細ページへ戻り、更新内容が反映されます。');
+
+/* reviewsテーブル */
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (1, 1, 1, 5, '素晴らしい滞在でした。また利用したいです。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (2, 1, 2, 4, '部屋が綺麗で、快適に過ごせました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (3, 1, 3, 4, 'アクセスが良く、観光に最適でした。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (4, 1, 4, 5, 'スタッフが親切で、気持ちよく滞在できました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (5, 1, 5, 4, '駅から近く、便利でした。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (6, 1, 6, 5, '周辺の飲食店が充実していて、楽しめました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (7, 1, 7, 4, '宿泊費が手頃で、コストパフォーマンスが良かったです。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (8, 1, 8, 3, '静かな環境でゆっくり休めました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (9, 1, 9, 4, '施設内の設備が充実していました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (10, 1, 10, 5, 'Wi-Fiが快適で助かりました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (11, 1, 11, 4, '清潔感があり、気持ちよく滞在できました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, score, content) VALUES (12, 1, 12, 5, '部屋が広く、ゆったり過ごせました。');

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<div th:replace="~{fragment :: meta}"></div>
+	<div th:replace="~{fragment :: styles}"></div>
+
+	<title>レビュー一覧</title>
+</head>
+
+<body>
+	<div class="samuraitravel-wrapper">
+		<div th:replace="~{fragment :: header}"></div>
+
+		<main>
+			<div class="container pb-5 samuraitravel-container">
+				<div class="row justify-content-center">
+					<div class="col-xl-10 col-lg-11">
+						<!-- パンくずリスト -->
+						<nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0">
+								<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+								<li class="breadcrumb-item"><a th:href="@{/houses}">民宿一覧</a></li>
+								<li class="breadcrumb-item">
+									<a th:href="@{|/houses/${house.id}|}" th:text="${house.name}"></a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">レビュー一覧</li>
+							</ol>
+						</nav>
+
+						<h1 class="mb-4 text-center" th:text="${house.name} + 'のレビュー一覧'">レビュー一覧</h1>
+
+						<!-- レビュー一覧 -->
+						<div class="row g-4">
+							<div class="col-md-6" th:each="review : ${reviewPage}">
+								<div class="border rounded p-3 h-100">
+									<h5 class="mb-1" th:text="${review.user.name}">ユーザー名</h5>
+									<div class="text-warning mb-2">
+										<!-- ★をscore分だけ表示 -->
+										<span th:each="i : ${#numbers.sequence(1, review.score)}">★</span>
+									</div>
+									<p class="mb-2" th:text="${review.content}">コメント</p>
+									<small class="text-muted"
+										th:text="${#temporals.format(review.createdAt, 'yyyy年MM月dd日')}">
+										2023年04月17日
+									</small>
+								</div>
+							</div>
+						</div>
+
+						<!-- ページネーション -->
+						<div class="d-flex justify-content-center mt-4">
+							<nav th:if="${reviewPage.totalPages > 1}">
+								<ul class="pagination">
+									<li class="page-item" th:classappend="${reviewPage.first} ? 'disabled'">
+										<a class="page-link"
+											th:href="@{|/houses/${house.id}/reviews?page=${reviewPage.number - 1}|}">前</a>
+									</li>
+									<li class="page-item"
+										th:each="i : ${#numbers.sequence(0, reviewPage.totalPages - 1)}"
+										th:classappend="${i == reviewPage.number} ? 'active'">
+										<a class="page-link" th:href="@{|/houses/${house.id}/reviews?page=${i}|}"
+											th:text="${i + 1}">1</a>
+									</li>
+									<li class="page-item" th:classappend="${reviewPage.last} ? 'disabled'">
+										<a class="page-link"
+											th:href="@{|/houses/${house.id}/reviews?page=${reviewPage.number + 1}|}">次</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<div th:replace="~{fragment :: footer}"></div>
+	</div>
+
+	<div th:replace="~{fragment :: scripts}"></div>
+</body>
+
+</html>
